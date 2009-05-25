@@ -24,7 +24,11 @@ module Remarkable
             actuals = attachment_definition[:styles].clone
             match = @options[:styles].all? do |key, value|
               actual = actuals.delete(key)
-              (actual.instance_of?(Hash) ? actual[:geometry] : actual) == value
+              actual == value || case actual
+              when Hash then actual[:geometry]
+              when Array then actual[0]
+              else actual
+              end == value
             end
             return (match && actuals.size == 0),
                    :styles => @options[:styles].inspect, :actual => attachment_definition[:styles].inspect

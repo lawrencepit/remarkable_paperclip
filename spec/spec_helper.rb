@@ -14,7 +14,9 @@ load(dir + '/db/schema.rb')
 require 'paperclip'
 class Person < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :ico => "16x16", :normal => "48x48" }
-  has_attached_file :photo
+  has_attached_file :photo,
+                    :styles => { :ico => ["16x16#", :png], :normal => { :geometry => "48x48#", :format => :png } },
+                    :default_style => :normal
   has_attached_file :cv
 end
 

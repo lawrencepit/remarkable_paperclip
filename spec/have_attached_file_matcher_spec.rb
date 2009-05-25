@@ -33,11 +33,13 @@ describe "have_attached_file" do
 
   describe 'matchers' do
     it { should have_attached_file(:avatar) }
-    it { should have_attached_file(:avatar, :styles => { :ico => "16x16", :normal=>"48x48" }) }
+    it { should have_attached_file(:avatar, :styles => { :ico => "16x16", :normal => "48x48" }) }
+    it { should have_attached_file(:photo, :styles => { :ico => ["16x16#", :png], :normal => { :geometry => "48x48#", :format => :png } }) }
+    it { should have_attached_file(:photo, :styles => { :ico => "16x16#", :normal => "48x48#" }) }
 
     it { should_not have_attached_file(:not_exists) }
     it { should_not have_attached_file(:avatar, :styles => { :ico => "16x16" }) }
-    it { should_not have_attached_file(:avatar, :styles => { :ico => "16x16", :normal=>"48x48", :large => "128x128" }) }
+    it { should_not have_attached_file(:avatar, :styles => { :ico => "16x16", :normal => "48x48", :large => "128x128" }) }
   end
 
 end
