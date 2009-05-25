@@ -31,7 +31,7 @@ module Remarkable
           end
 
           def is_maximum?
-            valid_with_size?(@maximum == Infinity ? 2*256 : @maximum)
+            valid_with_size?(@maximum == Infinity ? 2**256 : @maximum)
           end
 
           def more_than_maximum?
