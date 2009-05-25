@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name         = "remarkable_paperclip"
-  s.version      = "0.5.1"
+  s.version      = "0.5.2"
   s.author       = "Lawrence Pit"
   s.email        = "lawrence.pit@gmail.com"
   s.homepage     = "http://github.com/lawrencepit/remarkable_paperclip"

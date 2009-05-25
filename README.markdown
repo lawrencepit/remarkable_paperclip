@@ -6,10 +6,10 @@ Test matchers to test Paperclip with Remarkable.
 Usage
 -----
 
-  it { should have_attached_file :avatar, :styles => { :ico => "16x16", :normal => "48x48" } }
-  it { should validate_attachment_presence :avatar }
-  it { should validate_attachment_size :avatar, :less_than => 1.megabyte }
-  it { should validate_attachment_content_type :avatar, :allows => ["image/png", "image/jpg"], :rejects => ["video/mpeg"] }
+    it { should have_attached_file :avatar, :styles => { :ico => "16x16", :normal => "48x48" } }
+    it { should validate_attachment_presence :avatar }
+    it { should validate_attachment_size :avatar, :less_than => 1.megabyte }
+    it { should validate_attachment_content_type :avatar, :allows => ["image/png", "image/jpg"], :rejects => ["video/mpeg"] }
 
 
 Installation
