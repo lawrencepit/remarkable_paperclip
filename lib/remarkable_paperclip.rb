@@ -9,4 +9,4 @@ else
   Remarkable.include_matchers!(Remarkable::Paperclip, Spec::Example::ExampleGroup)
 end
 
-Remarkable.add_locale(File.dirname(__FILE__) + '/en.yml')
+Remarkable.add_locale(File.dirname(__FILE__) + '/../locale/en.yml')
