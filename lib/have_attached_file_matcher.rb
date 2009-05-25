@@ -4,9 +4,9 @@ module Remarkable
       class HaveAttachedFileMatcher < Remarkable::ActiveRecord::Base
         arguments :attribute
 
-        optionals :styles
+        optionals :styles, :default_style
 
-        assertions :defined?, :has_column?, :styles_match?
+        assertions :defined?, :has_column?, :styles_match?, :default_style_match?
 
         protected
           def defined?
@@ -32,6 +32,12 @@ module Remarkable
             end
             return (match && actuals.size == 0),
                    :styles => @options[:styles].inspect, :actual => attachment_definition[:styles].inspect
+          end
+
+          def default_style_match?
+            return true unless @options.key?(:default_style)
+            return @options[:default_style] == attachment_definition[:default_style],
+                   :style => @options[:default_style].inspect, :actual => attachment_definition[:default_style].inspect
           end
 
         private

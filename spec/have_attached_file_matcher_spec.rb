@@ -29,6 +29,12 @@ describe "have_attached_file" do
       @matcher.matches?(@subject)
       @matcher.failure_message.should == 'Expected Person to have attached file :avatar with styles {:ico=>"16x16"}, got {:ico=>"16x16", :normal=>"48x48"}'
     end
+
+    it "should set default_style_match? message" do
+      @matcher = have_attached_file(:photo, :default_style => :ico)
+      @matcher.matches?(@subject)
+      @matcher.failure_message.should == 'Expected Person to have attached file :photo with default style :ico, got :normal'
+    end
   end
 
   describe 'matchers' do
@@ -36,10 +42,13 @@ describe "have_attached_file" do
     it { should have_attached_file(:avatar, :styles => { :ico => "16x16", :normal => "48x48" }) }
     it { should have_attached_file(:photo, :styles => { :ico => ["16x16#", :png], :normal => { :geometry => "48x48#", :format => :png } }) }
     it { should have_attached_file(:photo, :styles => { :ico => "16x16#", :normal => "48x48#" }) }
+    it { should have_attached_file(:photo, :default_style => :normal) }
 
     it { should_not have_attached_file(:not_exists) }
     it { should_not have_attached_file(:avatar, :styles => { :ico => "16x16" }) }
     it { should_not have_attached_file(:avatar, :styles => { :ico => "16x16", :normal => "48x48", :large => "128x128" }) }
+    it { should_not have_attached_file(:avatar, :default_style => :normal) }
+    it { should_not have_attached_file(:photo, :default_style => :ico) }
   end
 
 end

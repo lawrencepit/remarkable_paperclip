@@ -7,9 +7,12 @@ en:
           defined: "{{subject_name}} has {{attribute}} as an attached file"
           has_column: "table {{table_name}} to have column {{column_name}}, but it does not"
           styles_match: "{{subject_name}} to have attached file {{attribute}} with styles {{styles}}, got {{actual}}"
+          default_style_match: "{{subject_name}} to have attached file {{attribute}} with default style {{style}}, got {{actual}}"
         optionals:
           styles:
             positive: "with styles {{inspect}}"
+          default_style:
+            positive: "with default style {{value}}"
       validate_attachment_size:
         description: "validate size for attached file {{attribute}}"
         expectations:
