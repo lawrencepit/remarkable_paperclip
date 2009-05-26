@@ -1,0 +1,43 @@
+en:
+  remarkable:
+    paperclip:
+      have_attached_file:
+        description: "have attached file {{attribute}}"
+        expectations:
+          defined: "{{subject_name}} has {{attribute}} as an attached file"
+          has_column: "table {{table_name}} to have column {{column_name}}, but it does not"
+          styles_match: "{{subject_name}} to have attached file {{attribute}} with styles {{styles}}, got {{actual}}"
+          default_style_match: "{{subject_name}} to have attached file {{attribute}} with default style {{style}}, got {{actual}}"
+        optionals:
+          styles:
+            positive: "with styles {{inspect}}"
+          default_style:
+            positive: "with default style {{value}}"
+      validate_attachment_size:
+        description: "validate size for attached file {{attribute}}"
+        expectations:
+          is_minimum: "{{subject_name}} to be valid when size of attached file {{attribute}} is {{minimum}}"
+          less_than_minimum: "{{subject_name}} to be invalid when size of attached file {{attribute}} is less than {{minimum}}"
+          is_maximum: "{{subject_name}} to be valid when size of attached file {{attribute}} is {{maximum}}"
+          more_than_maximum: "{{subject_name}} to be invalid when size of attached file {{attribute}} is more than {{maximum}}"
+        optionals:
+          in:
+            positive: "to be in {{inspect}}"
+          less_than:
+            positive: "to be less than {{value}}"
+          greater_than:
+            positive: "to be greater than {{value}}"
+      validate_attachment_presence:
+        description: "validate attachment presence of attached file {{attribute}}"
+        expectations:
+          invalid_when_not_present: "{{subject_name}} to be invalid when attached file {{attribute}} is not present"
+      validate_attachment_content_type:
+        description: "validate attachment content type of attached file {{attribute}}"
+        expectations:
+          allows_match: "{{subject_name}} to accept content types {{allows}} for attached file {{attribute}}"
+          rejects_match: "{{subject_name}} to reject content types {{rejects}} for attached file {{attribute}}"
+        optionals:
+          allows:
+            positive: "allowing {{inspect}}"
+          rejects:
+            positive: "rejecting {{inspect}}"
