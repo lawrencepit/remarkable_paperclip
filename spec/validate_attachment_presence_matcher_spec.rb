@@ -9,7 +9,6 @@ describe "validate_attachment_presence" do
   describe "messages" do
     it "should contain a description" do
       @matcher = validate_attachment_presence(:avatar)
-      @matcher.matches?(@subject)
       @matcher.description.should == 'validate attachment presence of attached file :avatar'
     end
 

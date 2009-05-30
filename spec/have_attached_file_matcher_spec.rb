@@ -8,7 +8,6 @@ describe "have_attached_file" do
   describe "messages" do
     it "should contain a description" do
       @matcher = have_attached_file(:avatar)
-      @matcher.matches?(@subject)
       @matcher.description.should == 'have attached file :avatar'
     end
 
@@ -27,7 +26,7 @@ describe "have_attached_file" do
     it "should set styles_match? message" do
       @matcher = have_attached_file(:avatar, :styles => { :ico => "16x16" })
       @matcher.matches?(@subject)
-      @matcher.failure_message.should == 'Expected Person to have attached file :avatar with styles {:ico=>"16x16"}, got {:ico=>"16x16", :normal=>"48x48"}'
+      @matcher.failure_message.should =~ %r{Expected Person to have attached file :avatar with styles \{:ico=>\"16x16\"\}, got \{:ico=>.*, :normal=>.*\}}
     end
 
     it "should set default_style_match? message" do

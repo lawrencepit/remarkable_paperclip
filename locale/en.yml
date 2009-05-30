@@ -31,13 +31,7 @@ en:
         description: "validate attachment presence of attached file {{attribute}}"
         expectations:
           invalid_when_not_present: "{{subject_name}} to be invalid when attached file {{attribute}} is not present"
-      validate_attachment_content_type:
-        description: "validate attachment content type of attached file {{attribute}}"
+      allow_attachment_content_type_for:
+        description: "allow {{in}} as content type for attachment {{attribute}}"
         expectations:
-          allows_match: "{{subject_name}} to accept content types {{allows}} for attached file {{attribute}}"
-          rejects_match: "{{subject_name}} to reject content types {{rejects}} for attached file {{attribute}}"
-        optionals:
-          allows:
-            positive: "allowing {{inspect}}"
-          rejects:
-            positive: "rejecting {{inspect}}"
+          is_valid: "{{subject_name}} to be valid when content type for attachment {{attribute}} is set to {{value}}"

@@ -9,7 +9,6 @@ describe "validate_attachment_size" do
 
     it "should contain a description when :in is used" do
       @matcher = validate_attachment_size(:avatar, :in => 100..110)
-      @matcher.matches?(@subject)
       @matcher.description.should == 'validate size for attached file :avatar to be in 100..110'
     end
 
