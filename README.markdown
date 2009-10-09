@@ -18,10 +18,10 @@ Installation
 ### As a Gem
 
 Use this if you prefer to use versioned releases of remarkable_paperclip.
-Specify the gem dependency in your config/environment.rb file:
+Specify the gem dependency in your config/environments/test.rb file:
 
     Rails::Initializer.run do |config|
-      config.gem "lawrencepit-remarkable_paperclip", :lib => false, :source => "http://gems.github.com"
+      config.gem "remarkable_paperclip", :lib => false, :source => "http://gemcutter.org"
     end
 
 Then:
